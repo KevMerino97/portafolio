@@ -1,0 +1,183 @@
+:root {
+  --color-primario: #000;
+  --color-secundario: #f6f6f6;
+  --color-terciario: #22d4fd;
+  --color-hover: #272727;
+
+  --fuente-montserrat: "Montserrat", sans-serif;
+  --fuente-krona: "Krona One", sans-serif;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+/*Part 02 video 2 Posicionamiento y box-sizing*/
+
+body {
+  background-color: var(--color-primario);
+  color: var(--color-secundario);
+  /*height: 100vh; Eliminado en curso 3 parte 3 video 2 para que el body use el espacio que necesite el contenido presente y se adapten mejor, ya no es necesaria esta propiedad porque ya tenemos varios elementos en nuestra página*/
+  box-sizing: border-box;
+}
+
+/*Curso 3 part 4 video 2*/
+
+.header {
+  padding: 2% 0% 0% 15%; /*Porcentajes en relación al ancho del body porque header es hijo directo de body, los valores van en sentido horario, iniciando desde arriba (a las 12) siguiendo hacia la derecha, abajo e izquierda. El valor 15% es igual al que tiene .presentación en su margen, para alinear el contenido del nav con el contenido restante de la página.*/
+}
+
+.header__menu {
+  display: flex;
+  gap: 80px;
+}
+
+.header__menu__link {
+  font-family: var(--fuente-montserrat);
+  font-size: 1.5rem;
+  font-weight: 600px;
+  color: var(--color-terciario);
+  text-decoration: none; /*Curso 3 part 4 video 3*/
+}
+
+/*Part 02 Video 05  Flexbox*/
+
+.presentacion {
+  display: flex;
+  align-items: center;
+  /*margin: 10% 15%; Eliminado en curso 3 part video 2*/ /*Part 3 video 2*, El margen será igual al 10% del valor total de la caja, por ejemplo si la caja tiene un valor de  200px, el 10% sera 20px de margen. 15% agregado en la parte 5 video 2, 10% corresponden arriba y abajo, 15% derecha e izquierda*/
+  padding: 6% 15%;
+  justify-content: space-between;
+  flex-direction: row;
+}
+
+/*Part 03 video 3*/
+
+.presentacion__contenido {
+  width: 615px;
+  display: flex; /*Parte 5 video 2*/
+  flex-direction: column;
+  gap: 40px;
+}
+
+/*Part 3 video 5*/
+.presentacion__contenido__titulo {
+  font-size: 2.25rem;
+  /* font-family: "Krona One", sans-serif;*/ /*Part 3 video 6*/
+  font-family: var(--fuente-krona);
+}
+
+.titulo-destaque {
+  color: var(--color-terciario);
+}
+
+.presentacion__contenido__texto {
+  font-family: var(--fuente-montserrat); /*Part 3 video 6*/
+  font-size: 1.5rem;
+}
+
+/*Part 4 video 2*/
+
+.presentacion__enlaces {
+  display: flex;
+  justify-content: space-between; /*Ponemos este valor porque deseamos crear espacio entre ellos en el eje vertical*/
+  flex-direction: column; /*Curso 3 part 1 video 4*/
+  align-items: center;
+  gap: 32px;
+}
+
+/* Curso 2 Part 4 video 4*/
+
+.presentacion__enlaces__link {
+  width: 378px; /*Modificado Curso 3 parte 1 video 6*/
+  /*background-color: #22d4fd;*/
+  text-align: center;
+  padding: 21.5px 0; /*El primer valor corresponde al valor vertical, el segundo al horizontal*, no agregamos mas padding en los costados porque ya contamos con espacio en los laterales*/
+  border-radius: 8px; /*Modificado Curso 3 parte 1 video 6*/
+  font-family: var(--fuente-montserrat);
+  font-size: 1.5rem;
+  font-weight: 600;
+  text-decoration: none;
+  color: var(--color-secundario); /*Modificado en curso 3 parte 1 video 6*/
+  border: 2px solid var(--color-terciario);
+}
+
+/*Curso 3 part 1 video 06*/
+
+.presentacion__enlaces__subtitulo {
+  font-family: var(--fuente-krona);
+  font-size: 1.5rem;
+  font-weight: 400;
+}
+
+/*Curso 3 part 2 video 5*/
+
+.presentacion__enlaces__link {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
+
+/*Curso 3 part 2 video 7*/
+
+.presentacion__enlaces__link:hover {
+  background-color: var(--color-hover);
+  /*padding: 3%;*/ /*3% en relación al ancho del contenedor que en este caso es la caja que se forma con la etiqueta a*/
+  /*border-color: #0000ff;*/
+  /*cursor: pointer;*/
+}
+
+/*Curso 3 part 3 video 2*/
+
+.footer {
+  background-color: var(--color-terciario);
+  padding: 24px;
+  color: var(--color-primario);
+  text-align: center;
+  font-family: var(--fuente-montserrat);
+  font-size: 1.5rem;
+  font-weight: 400;
+}
+
+/*Curso 4 part 2 video 2 */
+
+.presentacion__imagen {
+  width: 50%; /*Solo usará el 50% del ancho de su contenedor padre*/
+}
+
+.presentacion__enlaces__link {
+  width: 50%;
+}
+
+.presentacion__contenido {
+  width: 50%;
+}
+
+.presentacion {
+  gap: 82px;
+}
+
+/*Curso 4 part 3 video 2*/
+
+@media (max-width: 1200px) {
+  .presentacion {
+    flex-direction: column-reverse;
+    /*Curso 4 part 4 video 2*/
+    padding: 5%; /*Reducimos el padding para que el contenido no se vea aplastado*/
+  }
+
+  /*Curso 4 part 3 video 4*/
+  .header {
+    padding: 10%;
+  }
+
+  .header__menu {
+    justify-content: center;
+  }
+
+  /*Curso 4 part 4 video 2*/
+  .presentacion__contenido {
+    width: 100%; /*Hacemos que el ancho del elemento se adapte al contenido, es decir, la caja crecerá o decrecerá según como esté dispuesto el contenido y el espacio que haya en la pantalla */
+  }
+}
